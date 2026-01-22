@@ -5,13 +5,13 @@ import { CarCardComponent } from "../../../../shared/components/car-card.compone
 import { ScrollingModule } from '@angular/cdk/scrolling';
 
 @Component({
-  selector: 'app-car-list',
+  selector: 'popular-cars-list',
   standalone: true,   // 👈 REQUIRED
-  templateUrl: './car-list.component.html',
-  styleUrls: ['./car-list.component.css'],
+  templateUrl: './popular-cars-list.component.html',
+  styleUrls: ['./popular-cars-list.component.css'],
   imports: [CarCardComponent, ScrollingModule],
 })
-export class CarListComponent implements OnInit {
+export class PopularCarsListComponent implements OnInit {
   cars: Car[] = [];
 
   constructor(private carService: CarService) { }
@@ -19,8 +19,10 @@ export class CarListComponent implements OnInit {
   ngOnInit() {
     this.carService.getPopularCars().subscribe(cars => {
       this.cars = cars;
-      console.log('cars: ');
-      console.log(this.cars);
     });
+  }
+
+  trackById(index: number, car: any) {
+    return car.id;
   }
 }

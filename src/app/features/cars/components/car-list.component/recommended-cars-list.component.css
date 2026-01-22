@@ -1,0 +1,59 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
+}
+
+.list-container {
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+}
+
+/* AUTO HEIGHT MODE */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+/* VIRTUAL MODE */
+.viewport {
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+}
+
+.cdk-virtual-scroll-content-wrapper {
+  width: 100%;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  height: 340px;
+}
+
+.card-wrapper {
+  height: 300px;
+}
+
+.show-more-btn-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+.show-more-btn {
+  width: 4rem;
+  max-width: 260px;
+  min-width: 160px;
+  padding: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  background-color: var(--mat-sys-primary);
+  color: var(--mat-sys-on-primary);
+  border-radius: var(--mat-sys-corner-small);
+}

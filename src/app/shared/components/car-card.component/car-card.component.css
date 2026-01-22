@@ -91,11 +91,11 @@
 }
 
 .rent-btn {
-    background: #3563e9;
+    background: var(--mat-sys-primary);
     border: none;
-    color: #fff;
+    color: var(--mat-sys-on-primary);
     padding: 8px 14px;
-    border-radius: 8px;
+    border-radius: var(--mat-sys-corner-extra-small);
     font-size: 13px;
     cursor: pointer;
 }

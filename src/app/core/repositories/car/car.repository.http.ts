@@ -11,4 +11,8 @@ export class CarHttpRepository implements CarRepository {
     getPopularCars(): Observable<Car[]> {
         return this.http.get<Car[]>('/api/cars/popular');
     }
+
+    getRecommendedCars(): Observable<Car[]> {
+        return this.http.get<Car[]>('/api/cars/recommended');
+    }
 }

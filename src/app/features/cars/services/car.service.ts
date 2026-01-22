@@ -10,4 +10,8 @@ export class CarService {
     getPopularCars(): Observable<Car[]> {
         return this.repo.getPopularCars();
     }
+
+    getRecommendedCars(): Observable<Car[]> {
+        return this.repo.getRecommendedCars();
+    }
 }
