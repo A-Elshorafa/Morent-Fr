@@ -1,0 +1,30 @@
+.header-toolbar {
+  background: white;
+  padding: 40px 20px;
+}
+
+.left-section,
+.right-section {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.spacer {
+  flex: 1;
+}
+
+/* ✔ Rounded input — WORKS */
+.rounded-field {
+  --mdc-outlined-text-field-container-shape: var(--mat-sys-corner-large);
+}
+
+.search-field {
+  width: 260px;
+}
+
+/* ✔ Title styling */
+.app-title {
+  font-weight: 700;
+  color: var(--mat-sys-primary);
+}

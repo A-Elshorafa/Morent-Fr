@@ -1,0 +1,50 @@
+.custom-input {
+    width: 260px;
+    padding: 10px 16px;
+
+    border: 1px solid var(--mat-sys-on-surface);
+    border-radius: var(--mat-sys-corner-full);
+
+    background-color: var(--mat-sys-surface);
+    color: var(--mat-sys-on-surface);
+
+    font: var(--mat-sys-body-medium);
+
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.custom-input::placeholder {
+    color: var(--mat-sys-on-surface-variant);
+}
+
+.custom-input:focus {
+    border-color: var(--mat-sys-primary);
+    box-shadow: 0 0 0 2px color-mix(in srgb,
+            var(--mat-sys-primary) 20%,
+            transparent);
+}
+
+.input-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.custom-input {
+    width: 100%;
+    padding-left: 40px;
+    /* space for icon */
+    height: 40px;
+    box-sizing: border-box;
+}
+
+.search-icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    /* allows clicking inside input */
+    font-size: 16px;
+    color: #888;
+}
