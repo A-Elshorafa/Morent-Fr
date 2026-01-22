@@ -3,8 +3,8 @@
         <!-- Material typography + theme color -->
         <span class="mat-title-large app-title">Morent</span>
 
-        <app-input-component placeholder="Search something here" type="search"
-            class="search-field rounded-field"></app-input-component>
+        <app-input-component [showFilterButton]="true" placeholder="Search something here" type="search"
+            class="search-field rounded-field" (toggleFilter)="onToggleFilter()"></app-input-component>
     </div>
 
     <span class="spacer"></span>

@@ -28,6 +28,8 @@
 .input-wrapper {
     position: relative;
     width: 100%;
+    border: 1px solid var(--mat-sys-outline);
+    border-radius: var(--mat-sys-corner-full);
 }
 
 .custom-input {
@@ -41,10 +43,48 @@
 .search-icon {
     position: absolute;
     left: 12px;
-    top: 50%;
-    transform: translateY(-50%);
+    top: 8px;
+    width: 32px;
+    height: 32px;
     pointer-events: none;
     /* allows clicking inside input */
     font-size: 16px;
     color: #888;
+}
+
+.filter-button {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+
+    width: 32px;
+    height: 32px;
+    padding: 0;
+
+    background: transparent;
+    border: none;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+    z-index: 10;
+}
+
+.filter-button img {
+    width: 18px;
+    height: 18px;
+    opacity: 0.7;
+}
+
+.search-icon img {
+    width: 18px;
+    height: 18px;
+    opacity: 0.7;
+}
+
+.filter-button:hover img {
+    opacity: 1;
 }

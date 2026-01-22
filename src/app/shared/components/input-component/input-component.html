@@ -1,4 +1,7 @@
 <div class="input-wrapper">
-    <span class="search-icon">🔍</span>
+    <span class="search-icon"><img src="assets/icons/search-icon.png" alt="search"></span>
     <input type="text" [placeholder]="placeholder" class="custom-input" />
+    <button *ngIf="showFilterButton" mat-icon-button class="filter-button" type="button" (click)="onToggleFilter()">
+        <img src="assets/icons/filter-icon.png" alt="filter" />
+    </button>
 </div>

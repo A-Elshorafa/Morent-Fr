@@ -22,15 +22,17 @@ export class RecommendedCarsListComponent implements OnInit {
 
   constructor(private carService: CarService) { }
 
-  @ViewChild('container', { static: false })
-  container!: ElementRef;
+  @ViewChild('container') container?: ElementRef<HTMLElement>;
 
   ngAfterViewInit() {
     this.calculateHeight();
   }
 
-  calculateHeight() {
-    const rect = this.container.nativeElement.getBoundingClientRect();
+  calculateHeight(): void {
+    const el = this.container?.nativeElement;
+    if (!el) return;
+
+    const rect = el.getBoundingClientRect();
     this.viewportHeight = window.innerHeight - rect.top - 20;
   }
 

@@ -1,6 +1,14 @@
 <main class="main">
-  <header-component></header-component>
-  <recommended-cars></recommended-cars>
-  <footer-component></footer-component>
+  <!-- Header stays FIXED -->
+  <header-component (toggleFilter)="onToggleFilter()"></header-component>
+
+  <!-- Everything below shifts -->
+  <car-filter-panel [open]="filtersOpen" (filtersChange)="onFiltersChange($event)"></car-filter-panel>
+  <div class="main-content" [class.shifted]="filtersOpen">
+
+    <recommended-cars></recommended-cars>
+    <footer-component></footer-component>
+  </div>
 </main>
+
 <router-outlet />

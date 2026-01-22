@@ -1,0 +1,70 @@
+<aside class="filter-panel" [class.open]="open">
+    <!-- TYPE -->
+    <section class="section">
+        <h4>TYPE</h4>
+
+        <label class="checkbox">
+            <input type="checkbox" checked />
+            Sport <span>(10)</span>
+        </label>
+
+        <label class="checkbox">
+            <input type="checkbox" checked />
+            SUV <span>(12)</span>
+        </label>
+
+        <label class="checkbox">
+            <input type="checkbox" checked />
+            MPV <span>(16)</span>
+        </label>
+
+        <label class="checkbox">
+            <input type="checkbox" />
+            Sedan <span>(20)</span>
+        </label>
+
+        <label class="checkbox">
+            <input type="checkbox" />
+            Coupe <span>(14)</span>
+        </label>
+
+        <label class="checkbox">
+            <input type="checkbox" />
+            Hatchback <span>(14)</span>
+        </label>
+    </section>
+
+    <!-- CAPACITY -->
+    <section class="section">
+        <h4>CAPACITY</h4>
+
+        <label class="checkbox">
+            <input type="checkbox" checked />
+            2 Person <span>(10)</span>
+        </label>
+
+        <label class="checkbox">
+            <input type="checkbox" />
+            4 Person <span>(14)</span>
+        </label>
+
+        <label class="checkbox">
+            <input type="checkbox" />
+            6 Person <span>(12)</span>
+        </label>
+
+        <label class="checkbox">
+            <input type="checkbox" checked />
+            8 or More <span>(16)</span>
+        </label>
+    </section>
+
+    <!-- PRICE -->
+    <section class="section">
+        <h4>PRICE</h4>
+
+        <input type="range" min="0" max="100" step="1" [(ngModel)]="filters.maxPrice" (input)="emit()" />
+
+        <p class="price">Max. ${{ filters.maxPrice }}.00</p>
+    </section>
+</aside>
