@@ -1,13 +1,12 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { HeaderComponent } from '../components/header/header.component';
-import { FooterComponent } from '../components/footer-component/footer-component';
-import { PromoCardComponent } from '../components/promo-card.component/promo-card.component';
-import { RentalFilterComponent } from '../components/rental-filter.component/rental-filter.component';
+import { HeaderComponent } from './shared/components/header/header.component';
+import { FooterComponent } from './shared/components/footer-component/footer-component';
+import { RecommendedCars } from './features/cars/pages/recommended-cars/recommended-cars.page'
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, HeaderComponent, FooterComponent, PromoCardComponent, RentalFilterComponent],
+  imports: [RouterOutlet, HeaderComponent, FooterComponent, RecommendedCars],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

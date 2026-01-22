@@ -16,5 +16,12 @@
 }
 
 .card-wrapper {
+    width: 280px;
     padding-right: 16px;
+    box-sizing: border-box;
+}
+
+::ng-deep .cdk-virtual-scroll-content-wrapper {
+    display: flex;
+    gap: 2rem;
 }
