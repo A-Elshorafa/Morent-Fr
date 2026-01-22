@@ -1,0 +1,31 @@
+<div class="car-card">
+    <div class="header">
+        <div>
+            <h3>{{ car.name }}</h3>
+            <span class="type">{{ car.type }}</span>
+        </div>
+
+        <button class="like">
+            {{ car.liked ? '❤️' : '🤍' }}
+        </button>
+    </div>
+
+    <img class="car-image" [src]="car.image" alt="car" />
+
+    <div class="features">
+        <span>⛽ {{ car.fuel }}</span>
+        <span>⚙ {{ car.transmission }}</span>
+        <span>👥 {{ car.people }} People</span>
+    </div>
+
+    <div class="footer">
+        <div class="price">
+            <strong>${{ car.price }}</strong>
+            <span>/ day</span>
+
+            <small *ngIf="car.oldPrice">${{ car.oldPrice }}</small>
+        </div>
+
+        <button class="rent-btn">Rent Now</button>
+    </div>
+</div>
