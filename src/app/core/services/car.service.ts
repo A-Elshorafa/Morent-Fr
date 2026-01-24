@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Car } from '../../../core/interfaces/car.interface';
-import { CarRepository } from '../../../core/repositories/car/car.repository';
+import { Car } from '../interfaces/car.interface';
+import { CarRepository } from '../repositories/car/car.repository';
 
 @Injectable({ providedIn: 'root' })
 export class CarService {

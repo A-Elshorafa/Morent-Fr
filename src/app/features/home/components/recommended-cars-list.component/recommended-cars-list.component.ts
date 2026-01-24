@@ -1,5 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { CarService } from '../../services/car.service';
+import { CarService } from '../../../../core/services/car.service';
 import { Car } from '../../../../core/interfaces/car.interface';
 import { CarCardComponent } from "../../../../shared/components/car-card.component/car-card.component";
 import { ScrollingModule } from '@angular/cdk/scrolling';
