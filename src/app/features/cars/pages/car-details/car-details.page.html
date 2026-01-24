@@ -1,0 +1,16 @@
+<div class="car-details-page">
+  <!-- LEFT / TOP: GALLERY -->
+  <app-car-gallery [images]="car.images" [title]="car.title" [subtitle]="car.subtitle"></app-car-gallery>
+
+  <!-- RIGHT / BELOW: INFO CARD -->
+  <app-car-info-card [car]="car"></app-car-info-card>
+
+  <!-- FULL WIDTH: REVIEWS -->
+  <app-car-reviews class="car-reviews" [reviews]="reviews"></app-car-reviews>
+
+  <!-- Recent Cars -->
+  <cars-carsol class="car-reviews" [cars]="recentCars" title="Recent Cars"></cars-carsol>
+
+  <!-- Recommended Cars -->
+  <cars-carsol class="car-reviews" [cars]="recommendedCars" title="Recommended Cars"></cars-carsol>
+</div>

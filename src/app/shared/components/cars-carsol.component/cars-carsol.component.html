@@ -1,0 +1,10 @@
+<div class="list-header">
+    <h3>{{ title }}</h3>
+    <a href="#">View All</a>
+</div>
+
+<cdk-virtual-scroll-viewport orientation="horizontal" itemSize="280" class="viewport">
+    <div class="card-wrapper" *cdkVirtualFor="let car of cars">
+        <car-card [car]="car"></car-card>
+    </div>
+</cdk-virtual-scroll-viewport>

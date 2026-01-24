@@ -1,0 +1,15 @@
+<div class="gallery">
+    <div class="hero">
+        <div class="text">
+            <h2>{{ title }}</h2>
+            <p>{{ subtitle }}</p>
+        </div>
+
+        <img [src]="activeImage" alt="car image" />
+    </div>
+
+    <div class="thumbnails">
+        <img class="thumbnail" *ngFor="let img of images" [src]="img" [class.active]="img === activeImage"
+            (click)="selectImage(img)" alt="thumbnail" />
+    </div>
+</div>

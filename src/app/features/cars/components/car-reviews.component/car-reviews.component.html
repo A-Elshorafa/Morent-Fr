@@ -1,0 +1,24 @@
+<div class="reviews">
+    <h3>
+        Reviews
+        <span class="count">{{ reviews.length }}</span>
+    </h3>
+
+    <div class="review" *ngFor="let r of visibleReviews">
+        <img [src]="r.avatar" alt="avatar" />
+
+        <div class="content">
+            <div class="header">
+                <strong>{{ r.name }}</strong>
+                <span>{{ r.date }}</span>
+            </div>
+
+            <small>{{ r.role }}</small>
+            <p>{{ r.comment }}</p>
+        </div>
+    </div>
+
+    <button class="show-all" (click)="showAll = !showAll">
+        {{ showAll ? 'Show Less' : 'Show All' }}
+    </button>
+</div>

@@ -1,0 +1,26 @@
+<div class="info-card">
+    <h2>{{ car.name }}</h2>
+
+    <div class="rating">
+        ⭐⭐⭐⭐☆
+        <span>{{ car.reviewsCount }}+ Reviewer</span>
+    </div>
+
+    <p class="description">{{ car.description }}</p>
+
+    <div class="specs">
+        <div *ngFor="let spec of car.specs">
+            <span>{{ spec.label }}</span>
+            <strong>{{ spec.value }}</strong>
+        </div>
+    </div>
+
+    <div class="price">
+        <div>
+            <strong>\${{ car.price }}</strong> / days
+            <del *ngIf="car.oldPrice">\${{ car.oldPrice }}</del>
+        </div>
+
+        <button>Rent Now</button>
+    </div>
+</div>

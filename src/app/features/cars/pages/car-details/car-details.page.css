@@ -1,0 +1,19 @@
+.car-details-page {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 16px;
+}
+
+/* Desktop layout */
+@media (min-width: 1024px) {
+    .car-details-page {
+        grid-template-columns: 1.2fr 1fr;
+        gap: 24px;
+        padding: 24px;
+    }
+
+    .car-reviews {
+        grid-column: span 2;
+    }
+}
