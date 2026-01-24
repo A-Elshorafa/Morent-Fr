@@ -1,14 +1,1 @@
-<div class="app-shell" [class.lock-scroll]="filtersOpen">
-  <header-component (toggleFilter)="onToggleFilter()"></header-component>
-  <car-filter-panel [open]="filtersOpen" (filtersChange)="onFiltersChange($event)"></car-filter-panel>
-  <main class="main">
-
-    <div class="main-content" [class.shifted]="filtersOpen">
-
-      <recommended-cars></recommended-cars>
-      <footer-component></footer-component>
-    </div>
-  </main>
-</div>
-
 <router-outlet />

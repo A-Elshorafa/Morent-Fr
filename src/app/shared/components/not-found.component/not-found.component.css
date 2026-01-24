@@ -1,0 +1,89 @@
+.not-found-wrapper {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #f9fafb, #eef2ff);
+    padding: 16px;
+}
+
+.not-found-card {
+    background: #ffffff;
+    max-width: 420px;
+    width: 100%;
+    padding: 32px;
+    border-radius: 16px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    animation: fadeIn 0.6s ease;
+    border: .5rem solid var(--mat-sys-primary);
+    border-radius: var(--mat-sys-corner-small);
+}
+
+.icon {
+    font-size: 48px;
+    margin-bottom: 12px;
+}
+
+.not-found-card h1 {
+    font-size: 64px;
+    margin: 0;
+    color: var(--mat-sys-primary);
+}
+
+.not-found-card h2 {
+    margin: 8px 0;
+    font-size: 20px;
+    color: var(--mat-sys-on-surface);
+}
+
+.not-found-card p {
+    font-size: 14px;
+    color: var(--mat-sys-on-surface);
+    margin: 16px 0 24px;
+    line-height: 1.6;
+}
+
+.not-found-card button {
+    background: var(--mat-sys-primary);
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.2s ease, transform 0.1s ease;
+}
+
+.not-found-card button:hover {
+    background: var(--mat-sys-primary);
+}
+
+.not-found-card button:active {
+    transform: scale(0.97);
+}
+
+/* ✔ Title styling */
+.app-title {
+    font-size: 64px;
+    font-weight: 700;
+    color: var(--mat-sys-primary);
+    margin-bottom: 2rem;
+    padding: 1.25rem;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
