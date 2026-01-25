@@ -1,15 +1,19 @@
 import { FormsModule } from '@angular/forms';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { FilterLayoutService } from '@/core/services/filter-layout.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'car-filter-panel',
-  imports: [FormsModule],
+  imports: [FormsModule, CommonModule],
   standalone: true,
   templateUrl: './car-filter-panel.component.html',
   styleUrl: './car-filter-panel.component.css',
 })
 export class CarFilterPanelComponent {
-  @Input() open = false;
+
+  constructor(public filterLayoutService: FilterLayoutService) {
+  }
 
   @Output() filtersChange = new EventEmitter<any>();
 
@@ -27,5 +31,9 @@ export class CarFilterPanelComponent {
 
   emit() {
     this.filtersChange.emit(this.filters);
+  }
+
+  close() {
+    this.filterLayoutService.close();
   }
 }

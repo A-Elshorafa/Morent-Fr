@@ -1,6 +1,6 @@
-<div class="app-shell" [class.lock-scroll]="filtersOpen">
-    <header-component (toggleFilter)="onToggleFilter()"></header-component>
-    <car-filter-panel [open]="filtersOpen" (filtersChange)="onFiltersChange($event)"></car-filter-panel>
+<div class="app-shell" [class.lock-scroll]="filterLayout.open()">
+    <header-component (newfilterevent)="onToggleFilter()"></header-component>
+    <car-filter-panel (filtersChange)="onFiltersChange($event)"></car-filter-panel>
     <main class="main">
         <ng-content></ng-content>
         <footer-component></footer-component>

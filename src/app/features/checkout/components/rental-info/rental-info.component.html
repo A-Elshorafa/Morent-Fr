@@ -1,0 +1,21 @@
+<section class="card" [formGroup]="group">
+    <h3>Rental Info</h3>
+
+    <div [formGroup]="pickUp">
+        <h4>Pick-Up</h4>
+
+        <app-location-select title="Location" formControlName="pickUpLocation" />
+
+        <app-form-date title="Pick-Up Date" formControlName="pickUpDate" />
+        <app-form-time title="Pick-Up Time" formControlName="pickUpTime" />
+    </div>
+
+    <div [formGroup]="dropOff">
+        <h4>Drop-Off</h4>
+
+        <app-location-select title="Location" formControlName="deliveryLocation" />
+
+        <app-form-date title="Delivery Date" formControlName="deliveryDate" />
+        <app-form-time title="Delivery Time" formControlName="deliveryTime" />
+    </div>
+</section>

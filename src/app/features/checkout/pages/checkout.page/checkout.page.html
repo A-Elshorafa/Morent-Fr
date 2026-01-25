@@ -1,0 +1,14 @@
+<div class="layout">
+    <form [formGroup]="form" (ngSubmit)="submit()">
+        <app-billing-info [group]="form.controls.billing" />
+        <app-rental-info [group]="form.controls.rental" />
+        <app-payment-method [group]="form.controls.payment" />
+        <app-confirmation [group]="form.controls.confirmation" />
+
+        <button type="submit" class="btn-primary">
+            Rent Now
+        </button>
+    </form>
+
+    <app-rental-summary />
+</div>

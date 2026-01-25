@@ -1,0 +1,64 @@
+.card {
+    background: #ffffff;
+    border-radius: 14px;
+    padding: 20px 24px;
+    border: 1px solid #eef0f4;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.card h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.card h4 {
+    font-size: 14px;
+    font-weight: 600;
+    margin: 12px 0 4px;
+    color: #374151;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 10px;
+    border: 1px solid #e5e7eb;
+    background: #f9fafb;
+    font-size: 14px;
+}
+
+input:focus,
+select:focus {
+    outline: none;
+    border-color: #4f46e5;
+    background: #ffffff;
+}
+
+:host {
+    display: block;
+}
+
+.card>div {
+    border-top: 1px solid #eef0f4;
+    padding-top: 16px;
+    margin-top: 8px;
+}
+
+.card>div:first-of-type {
+    border-top: none;
+    padding-top: 0;
+}
+
+.card>div {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.card h4 {
+    grid-column: span 2;
+}

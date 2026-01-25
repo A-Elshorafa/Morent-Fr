@@ -1,0 +1,8 @@
+<div class="form-control">
+    <label class="title">{{ title }}</label>
+
+    <div class="input-wrapper">
+        <input type="time" class="input" [value]="value" [disabled]="disabled"
+            (change)="handleChange($any($event.target).value)" (blur)="handleOnTouched()" />
+    </div>
+</div>

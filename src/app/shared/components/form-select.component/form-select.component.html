@@ -1,0 +1,18 @@
+<div class="form-select">
+    <label class="title">{{ title }}</label>
+
+    <div class="select-wrapper">
+        <select class="select" [disabled]="disabled" [value]="value" (change)="onChange($any($event.target).value)"
+            (blur)="onTouched()">
+            <option value="" disabled selected hidden>
+                {{ placeholder }}
+            </option>
+
+            <option *ngFor="let option of options" [value]="option.value">
+                {{ option.label }}
+            </option>
+        </select>
+
+        <span class="arrow">⌄</span>
+    </div>
+</div>

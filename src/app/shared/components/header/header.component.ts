@@ -7,6 +7,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { InputComponent } from '../input-component/input-component';
 import { IconButton } from "../icon-button/icon-button";
+import { FilterLayoutService } from '@/core/services/filter-layout.service';
 
 @Component({
   selector: 'header-component',
@@ -20,10 +21,9 @@ import { IconButton } from "../icon-button/icon-button";
   standalone: true,
 })
 export class HeaderComponent {
-  @Output() toggleFilter = new EventEmitter<void>();
+  constructor(private filterLayout: FilterLayoutService) { }
 
-  onToggleFilter() {
-    console.log('toggle filter header');
-    this.toggleFilter.emit();
+  toggleFilter() {
+    this.filterLayout.toggle();
   }
 }

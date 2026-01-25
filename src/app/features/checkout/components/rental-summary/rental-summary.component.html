@@ -1,0 +1,59 @@
+<div class="summary-card">
+    <h3 class="title">Rental Summary</h3>
+    <p class="subtitle">
+        Prices may change depending on the length of the rental and the price of
+        your rental car.
+    </p>
+
+    <!-- Car Info -->
+    <div class="car-info">
+        <div class="car-image">
+            <img [src]="carImage" alt="Car" />
+        </div>
+
+        <div class="car-details">
+            <h4>{{ carName }}</h4>
+
+            <div class="rating">
+                <ng-container *ngFor="let _ of stars; let i = index">
+                    <span class="star" [class.filled]="i < rating">
+                        ★
+                    </span>
+                </ng-container>
+                <span class="reviews">review{{ reviewers }}+ Reviewer</span>
+            </div>
+        </div>
+    </div>
+
+    <hr />
+
+    <!-- Price Breakdown -->
+    <div class="price-row">
+        <span>Subtotal</span>
+        <span>\${{ subtotal | number: '1.2-2' }}</span>
+    </div>
+
+    <div class="price-row">
+        <span>Tax</span>
+        <span>\${{ tax | number: '1.2-2' }}</span>
+    </div>
+
+    <!-- Promo -->
+    <div class="promo">
+        <input placeholder="Apply promo code" />
+        <button>Apply now</button>
+    </div>
+
+    <hr />
+
+    <!-- Total -->
+    <div class="total">
+        <div>
+            <h4>Total Rental Price</h4>
+            <p>Overall price and includes rental discount</p>
+        </div>
+        <div class="total-price">
+            \${{ total | number: '1.2-2' }}
+        </div>
+    </div>
+</div>

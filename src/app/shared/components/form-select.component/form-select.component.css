@@ -1,0 +1,52 @@
+.form-select {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.title {
+    font-size: 14px;
+    font-weight: 600;
+    color: #111827;
+}
+
+.select-wrapper {
+    position: relative;
+}
+
+.select {
+    width: 100%;
+    padding: 14px 44px 14px 16px;
+    border-radius: 12px;
+    border: none;
+    background: #f5f6f8;
+    font-size: 14px;
+    color: #111827;
+    appearance: none;
+    cursor: pointer;
+}
+
+.select:focus {
+    outline: none;
+    background: #ffffff;
+    box-shadow: 0 0 0 2px #e0e7ff;
+}
+
+.select:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.select option[value=""] {
+    color: #94a3b8;
+}
+
+.arrow {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    font-size: 14px;
+    color: #64748b;
+}

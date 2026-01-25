@@ -1,0 +1,36 @@
+.form-input {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.title {
+    font-size: 14px;
+    font-weight: 500;
+    color: #111827;
+}
+
+.input {
+    width: calc(100% - 32px);
+    padding: 14px 16px;
+    border-radius: 12px;
+    border: none;
+    background: #f5f6f8;
+    font-size: 14px;
+    color: #111827;
+}
+
+.input::placeholder {
+    color: #94a3b8;
+}
+
+.input:focus {
+    outline: none;
+    background: #ffffff;
+    box-shadow: 0 0 0 2px #e0e7ff;
+}
+
+.input:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}

@@ -8,6 +8,7 @@ import {
   computed,
 } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
+import { FilterLayoutService } from '@/core/services/filter-layout.service';
 
 @Component({
   selector: 'app-input-component',
@@ -17,6 +18,8 @@ import { MatButtonModule } from '@angular/material/button';
   styleUrl: './input-component.css',
 })
 export class InputComponent {
+  constructor(private filterLayout: FilterLayoutService) { }
+
   // ===== Inputs =====
   @Input() placeholder = '';
   @Input() type: 'text' | 'email' | 'password' | 'search' = 'text';
@@ -24,12 +27,15 @@ export class InputComponent {
   @Input() readonly = false;
   @Input() showFilterButton = false;
 
-  @Output() toggleFilter = new EventEmitter<void>();
 
   // Initial value input
   @Input()
   set value(val: string) {
     this._value.set(val ?? '');
+  }
+
+  onToggleFilter() {
+    this.filterLayout.toggle();
   }
 
   // ===== Signals =====
@@ -44,10 +50,5 @@ export class InputComponent {
     const newValue = (event.target as HTMLInputElement).value;
     this._value.set(newValue);
     this.valueChange.emit(newValue);
-  }
-
-  onToggleFilter() {
-    console.log('toggle filter');
-    this.toggleFilter.emit();
   }
 }

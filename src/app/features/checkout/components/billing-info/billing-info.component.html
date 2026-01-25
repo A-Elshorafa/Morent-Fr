@@ -1,0 +1,16 @@
+<section class="card" [formGroup]="group">
+  <div class="card-header">
+    <h3>Billing Info</h3>
+    <p class="card-description">Please enter your billing information</p>
+  </div>
+
+  <div class="form-group">
+    <app-form-input title="Name" placeholder="Your name" formControlName="name" />
+
+    <app-form-input title="Phone Number" placeholder="Phone number" formControlName="phone" />
+
+    <app-form-input title="Address" placeholder="Address" formControlName="address" />
+
+    <app-form-input title="Town / City" placeholder="Town or city" formControlName="city" />
+  </div>
+</section>
