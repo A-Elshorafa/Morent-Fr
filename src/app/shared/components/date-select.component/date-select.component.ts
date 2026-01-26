@@ -17,6 +17,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 export class FormDateComponent implements ControlValueAccessor {
   @Input({ required: true }) title!: string;
   @Input() placeholder = 'Select date';
+  @Input() variant: 'default' | 'inline' = 'default';
 
   value: string | null = null;
   disabled = false;

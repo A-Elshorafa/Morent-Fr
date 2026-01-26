@@ -33,3 +33,32 @@
 .input:disabled {
     opacity: 0.6;
 }
+
+/* =====================
+   INLINE VARIANT (Rental Filter)
+===================== */
+.form-control.inline {
+    gap: 4px;
+}
+
+.form-control.inline .title {
+    font-size: 12px;
+    font-weight: 600;
+    color: #374151;
+}
+
+.form-control.inline .input {
+    padding: 0;
+    width: 100%;
+    background: transparent;
+    border-radius: 0;
+    box-shadow: none;
+    font-size: 14px;
+    color: #6b7280;
+    cursor: pointer;
+}
+
+.form-control.inline .input:focus {
+    background: transparent;
+    box-shadow: none;
+}
