@@ -25,10 +25,6 @@ export class CarDetailsPage implements OnInit {
     this.carService.getRecommendedCars().subscribe(cars => {
       this.recommendedCars = cars;
     });
-
-    this.carService.getRecommendedCars().subscribe(cars => {
-      this.recentCars = cars;
-    });
   }
 
   car = {
