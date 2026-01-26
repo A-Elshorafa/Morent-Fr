@@ -21,6 +21,7 @@ import { LocationService } from '../../../core/services/location.service';
 export class LocationSelectComponent implements ControlValueAccessor {
   @Input() title = 'Location';
   @Input() placeholder = 'Select location';
+  @Input() variant: 'default' | 'inline' = 'default';
 
   options: SelectOption<number>[] = [];
   value: number | null = null;

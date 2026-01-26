@@ -50,3 +50,36 @@
     font-size: 14px;
     color: #64748b;
 }
+
+/* =====================
+   INLINE VARIANT (Rental Filter)
+===================== */
+.form-select.inline {
+    gap: 4px;
+}
+
+.form-select.inline .title {
+    font-size: 12px;
+    font-weight: 600;
+    color: #374151;
+}
+
+.form-select.inline .select {
+    padding: 0;
+    background: transparent;
+    border-radius: 0;
+    box-shadow: none;
+    font-size: 14px;
+    color: #6b7280;
+}
+
+.form-select.inline .select:focus {
+    background: transparent;
+    box-shadow: none;
+}
+
+.form-select.inline .arrow {
+    right: 0;
+    font-size: 12px;
+    color: #9ca3af;
+}

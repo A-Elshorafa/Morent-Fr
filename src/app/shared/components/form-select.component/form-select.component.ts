@@ -22,6 +22,8 @@ export class FormSelectComponent<T = any> implements ControlValueAccessor {
   @Input() value: T | null = null;
   @Input() placeholder = 'Select';
   @Input({ required: true }) options: SelectOption<T>[] = [];
+  @Input() variant: 'default' | 'inline' = 'default';
+
 
   onChange = (value: T | null) => { };
   onTouched = () => { };

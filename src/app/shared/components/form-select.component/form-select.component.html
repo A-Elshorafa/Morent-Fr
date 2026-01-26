@@ -1,10 +1,10 @@
-<div class="form-select">
+<div class="form-select" [class.inline]="variant === 'inline'">
     <label class="title">{{ title }}</label>
 
     <div class="select-wrapper">
         <select class="select" [disabled]="disabled" [value]="value" (change)="onChange($any($event.target).value)"
             (blur)="onTouched()">
-            <option value="" disabled selected hidden>
+            <option value="" disabled hidden>
                 {{ placeholder }}
             </option>
 
