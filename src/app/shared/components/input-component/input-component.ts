@@ -34,6 +34,8 @@ export class InputComponent {
     this._value.set(val ?? '');
   }
 
+  @Output() onSearch = new EventEmitter<string>();
+
   onToggleFilter() {
     this.filterLayout.toggle();
   }
@@ -42,13 +44,14 @@ export class InputComponent {
   private _value = signal('');
   valueSignal = computed(() => this._value());
 
-  // ===== Outputs =====
-  @Output() valueChange = new EventEmitter<string>();
 
   // ===== Handlers =====
   onInput(event: Event): void {
     const newValue = (event.target as HTMLInputElement).value;
     this._value.set(newValue);
-    this.valueChange.emit(newValue);
+  }
+
+  onClickSearch() {
+    this.onSearch.emit(this.valueSignal());
   }
 }

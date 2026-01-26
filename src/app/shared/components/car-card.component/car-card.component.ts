@@ -1,16 +1,5 @@
 import { Component, Input } from '@angular/core';
-
-export interface Car {
-  name: string;
-  type: string;
-  image: string;
-  fuel: string;
-  transmission: string;
-  people: number;
-  price: number;
-  oldPrice?: number;
-  liked?: boolean;
-}
+import { Car } from "../../../core/interfaces/car.interface";
 
 @Component({
   selector: 'car-card',

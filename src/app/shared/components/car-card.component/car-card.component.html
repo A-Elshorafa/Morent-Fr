@@ -1,26 +1,26 @@
 <div class="car-card">
     <div class="header">
         <div>
-            <h3>{{ car.name }}</h3>
-            <span class="type">{{ car.type }}</span>
+            <h3>{{ car.modelName }}</h3>
+            <span class="type">{{ car.typeName }}</span>
         </div>
 
         <button class="like">
-            {{ car.liked ? '❤️' : '🤍' }}
+            {{ car.isPreferred ? '❤️' : '🤍' }}
         </button>
     </div>
 
-    <img class="car-image" [src]="car.image" alt="car" />
+    <img class="car-image" [src]="car.photoURL" alt="car" />
 
     <div class="features">
-        <span>⛽ {{ car.fuel }}</span>
-        <span>⚙ {{ car.transmission }}</span>
-        <span>👥 {{ car.people }} People</span>
+        <span>⛽ {{ car.fuelCapacity }}</span>
+        <span>⚙ {{ car.isAutomatic ? 'Automatic' : 'Manual' }}</span>
+        <span>👥 {{ car.noOfPassengers }} People</span>
     </div>
 
     <div class="footer">
         <div class="price">
-            <strong>${{ car.price }}</strong>
+            <strong>${{ car.rentalPrice }}</strong>
             <span>/ day</span>
 
             <!-- <small *ngIf="car.oldPrice">${{ car.oldPrice }}</small> -->

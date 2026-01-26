@@ -1,6 +1,8 @@
 <div class="input-wrapper">
-    <span class="search-icon"><img src="assets/icons/search-icon.png" alt="search"></span>
-    <input type="text" [placeholder]="placeholder" class="custom-input" />
+    <button mat-icon-button class="search-button" type="button" (click)="onClickSearch()">
+        <img src="assets/icons/search-icon.png" alt="search">
+    </button>
+    <input type="text" [placeholder]="placeholder" class="custom-input" (change)="onInput($event)" />
     <button *ngIf="showFilterButton" mat-icon-button class="filter-button" type="button" (click)="onToggleFilter()">
         <img src="assets/icons/filter-icon.png" alt="filter" />
     </button>

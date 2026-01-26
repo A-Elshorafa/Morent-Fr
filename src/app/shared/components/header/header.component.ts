@@ -26,4 +26,9 @@ export class HeaderComponent {
   toggleFilter() {
     this.filterLayout.toggle();
   }
+
+  onSearch(searchkey: string) {
+    console.log('searchkey');
+    console.log(searchkey);
+  }
 }
