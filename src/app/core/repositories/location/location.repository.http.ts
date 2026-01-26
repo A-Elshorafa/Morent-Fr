@@ -9,6 +9,6 @@ export class LocationHttpRepository implements LocationRepository {
     constructor(private http: HttpClient) { }
 
     getLocations(): Observable<Location[]> {
-        return this.http.get<Location[]>('/api/locations');
+        return this.http.get<Location[]>('locations');
     }
 }

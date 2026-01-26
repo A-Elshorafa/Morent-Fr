@@ -1,8 +1,8 @@
 import { Provider } from '@angular/core';
 import { LocationRepository } from './location.repository';
-import { LocationMockRepository } from './location.repository.mock';
+import { LocationHttpRepository } from './location.repository.http';
 
 export const LOCATION_REPOSITORY_PROVIDER: Provider = {
     provide: LocationRepository,
-    useClass: LocationMockRepository,
+    useClass: LocationHttpRepository,
 };

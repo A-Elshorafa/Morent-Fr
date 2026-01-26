@@ -8,24 +8,24 @@ export class LocationMockRepository implements LocationRepository {
     getLocations(): Observable<Location[]> {
         return of([
             {
-                id: 1,
-                name: 'Cairo',
+                locationId: 1,
+                locationName: 'Cairo',
             },
             {
-                id: 2,
-                name: 'Giza',
+                locationId: 2,
+                locationName: 'Giza',
             },
             {
-                id: 3,
-                name: 'Alexandria',
+                locationId: 3,
+                locationName: 'Alexandria',
             },
             {
-                id: 4,
-                name: 'Suez',
+                locationId: 4,
+                locationName: 'Suez',
             },
             {
-                id: 5,
-                name: 'Mokattam',
+                locationId: 5,
+                locationName: 'Mokattam',
             },
         ]);
     };

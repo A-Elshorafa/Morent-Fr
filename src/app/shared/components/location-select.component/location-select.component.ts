@@ -18,7 +18,7 @@ import { LocationService } from '../../../core/services/location.service';
     },
   ],
 })
-export class LocationSelectComponent implements ControlValueAccessor, OnInit {
+export class LocationSelectComponent implements ControlValueAccessor {
   @Input() title = 'Location';
   @Input() placeholder = 'Select location';
 
@@ -29,16 +29,17 @@ export class LocationSelectComponent implements ControlValueAccessor, OnInit {
   onChange = (value: number | null) => { };
   onTouched = () => { };
 
-  constructor(private locationService: LocationService) { }
-
-  ngOnInit() {
+  constructor(private locationService: LocationService) {
     this.locationService.getLocations().subscribe((locations) => {
       this.options = locations.map((l) => ({
-        label: l.name,
-        value: l.id,
+        label: l.locationName,
+        value: l.locationId,
       }));
+      console.log('options : ', this.options)
+
     });
   }
+
 
   writeValue(value: number | null): void {
     this.value = value;
