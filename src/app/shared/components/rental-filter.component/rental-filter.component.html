@@ -1,4 +1,4 @@
-<div class="rental-filter">
+<form class="rental-filter" [formGroup]="form">
     <!-- Pick-Up -->
     <div class="card">
         <div class="card-title">
@@ -9,14 +9,14 @@
         <div class="fields">
             <app-location-select title="Location" formControlName="pickUpLocation" variant="inline" />
 
-            <app-form-date title="Date" formControlName="pickUpDateFrom" variant="inline" />
+            <app-form-date title="From" formControlName="pickUpDateFrom" variant="inline" />
 
-            <app-form-date title="Date" formControlName="pickUpDateTo" variant="inline" />
+            <app-form-date title="To" formControlName="pickUpDateTo" variant="inline" />
         </div>
     </div>
 
     <!-- Swap Button -->
-    <button class="swap-btn" (click)="swapLocations()">
+    <button type="button" class="swap-btn" (click)="swapLocations()">
         ⇅
     </button>
 
@@ -30,9 +30,9 @@
         <div class="fields">
             <app-location-select title="Location" formControlName="dropOffLocation" variant="inline" />
 
-            <app-form-date title="Date" formControlName="dropOffDateFrom" variant="inline" />
+            <app-form-date title="From" formControlName="dropOffDateFrom" variant="inline" />
 
-            <app-form-date title="Date" formControlName="dropOffDateTo" variant="inline" />
+            <app-form-date title="To" formControlName="dropOffDateTo" variant="inline" />
         </div>
     </div>
-</div>
+</form>

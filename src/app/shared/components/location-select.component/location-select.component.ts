@@ -57,4 +57,9 @@ export class LocationSelectComponent implements ControlValueAccessor {
   setDisabledState(isDisabled: boolean): void {
     this.disabled = isDisabled;
   }
+
+  handleValueChange(value: number | null): void {
+    this.value = value;
+    this.onChange(value);
+  }
 }

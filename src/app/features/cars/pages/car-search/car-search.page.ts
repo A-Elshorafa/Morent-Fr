@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectorRef, signal } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
 import { RentalFilterComponent } from "@/shared/components/rental-filter.component/rental-filter.component";
 import { CarsListComponent } from "../../components/cars-list.component/cars-list.component";
 import { CarService } from '@/core/services/car.service';
@@ -23,7 +23,6 @@ export class CarSearchPage implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private carService: CarService,
-    private cdr: ChangeDetectorRef
   ) { }
 
   ngOnInit(): void {
@@ -34,11 +33,13 @@ export class CarSearchPage implements OnInit {
     });
   }
 
-  private resetAndLoad(): void {
+  private resetAndLoad(withLoading: boolean = true): void {
     this.currentPage = 1;
     this.cars.update(() => []);
     this.hasMore = true;
-    this.loadCars();
+    if (withLoading) {
+      this.loadCars();
+    }
   }
 
   loadCars(): void {
@@ -47,7 +48,6 @@ export class CarSearchPage implements OnInit {
         this.hasMore = false;
       }
       this.cars.update((cars) => [...cars, ...newCars]);
-      this.cdr.markForCheck();
     });
   }
 
@@ -56,5 +56,13 @@ export class CarSearchPage implements OnInit {
       this.currentPage++;
       this.loadCars();
     }
+  }
+
+  onSwapLocations(data: any) {
+    // todo : handle the filter by availability dates
+    this.resetAndLoad(false);
+    setTimeout(() => {
+      this.resetAndLoad();
+    }, 1000);
   }
 }

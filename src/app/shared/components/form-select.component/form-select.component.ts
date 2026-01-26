@@ -1,4 +1,4 @@
-import { Component, Input, forwardRef } from '@angular/core';
+import { Component, Input, Output, EventEmitter, forwardRef } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { type SelectOption } from '../../../core/interfaces/select-option';
 import { CommonModule } from '@angular/common';
@@ -23,7 +23,7 @@ export class FormSelectComponent<T = any> implements ControlValueAccessor {
   @Input() placeholder = 'Select';
   @Input({ required: true }) options: SelectOption<T>[] = [];
   @Input() variant: 'default' | 'inline' = 'default';
-
+  @Output() valueChange = new EventEmitter<T | null>();
 
   onChange = (value: T | null) => { };
   onTouched = () => { };
@@ -42,5 +42,11 @@ export class FormSelectComponent<T = any> implements ControlValueAccessor {
 
   setDisabledState(isDisabled: boolean): void {
     this.disabled = isDisabled;
+  }
+
+  handleChange(value: T | null): void {
+    this.value = value;
+    this.onChange(value);
+    this.valueChange.emit(value);
   }
 }
