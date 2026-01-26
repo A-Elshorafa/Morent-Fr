@@ -1,0 +1,13 @@
+.header-component {
+    position: sticky;
+    /* or static if you want */
+    top: 0;
+    z-index: 100;
+    width: 100vw;
+}
+
+.body-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}

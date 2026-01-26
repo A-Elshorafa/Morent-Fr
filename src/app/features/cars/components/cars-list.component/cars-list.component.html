@@ -1,0 +1,13 @@
+<div class="grid">
+    <div class="card-wrapper" *ngFor="let car of cars | slice: 0 : visibleCount; trackBy: trackById">
+        <car-card [car]="car"></car-card>
+    </div>
+</div>
+
+<div class="show-more-btn-container">
+    <button class="show-more-btn"
+        *ngIf="(showExternalPagination && hasMore && cars.length > 0) || (!showExternalPagination && visibleCount < cars.length)"
+        (click)="showMore()">
+        Show more cars
+    </button>
+</div>

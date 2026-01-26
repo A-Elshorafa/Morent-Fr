@@ -7,6 +7,10 @@ import { CarRepository } from '../repositories/car/car.repository';
 export class CarService {
     constructor(private repo: CarRepository) { }
 
+    getCarsList(pageNumber: number = 1, pageSize: number = 10, searchToken: string = ""): Observable<Car[]> {
+        return this.repo.getCarsList(pageNumber, pageSize, searchToken);
+    }
+
     getPopularCars(): Observable<Car[]> {
         return this.repo.getPopularCars();
     }

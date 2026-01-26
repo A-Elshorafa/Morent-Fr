@@ -1,6 +1,6 @@
 :host {
     display: block;
-    width: 260px;
+    width: 280px;
     /* 👈 SINGLE SOURCE OF TRUTH */
 }
 
@@ -13,6 +13,7 @@
     padding: 16px;
     display: flex;
     flex-direction: column;
+    width: 100%;
     gap: 12px;
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
 }

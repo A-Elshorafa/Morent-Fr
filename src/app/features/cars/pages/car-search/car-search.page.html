@@ -1,0 +1,4 @@
+<div class="body-container">
+    <rental-filter></rental-filter>
+    <app-cars-list [cars]="cars()" [showExternalPagination]="true" [hasMore]="hasMore" (showMoreClick)="loadMore()" />
+</div>

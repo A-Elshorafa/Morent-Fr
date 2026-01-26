@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Router, RouterOutlet } from '@angular/router';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
@@ -21,14 +21,13 @@ import { FilterLayoutService } from '@/core/services/filter-layout.service';
   standalone: true,
 })
 export class HeaderComponent {
-  constructor(private filterLayout: FilterLayoutService) { }
+  constructor(private filterLayout: FilterLayoutService, private router: Router) { }
 
   toggleFilter() {
     this.filterLayout.toggle();
   }
 
   onSearch(searchkey: string) {
-    console.log('searchkey');
-    console.log(searchkey);
+    this.router.navigate(['/car-search'], { queryParams: { search: searchkey } });
   }
 }
