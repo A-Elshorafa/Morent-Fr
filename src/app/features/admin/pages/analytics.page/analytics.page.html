@@ -3,5 +3,13 @@
         carName="Nissan GT-R" carType="Sport Car" [price]="80" pickupLocation="Kota Semarang" pickupDate="20 July 2022"
         pickupTime="07:00" dropoffLocation="Kota Semarang" dropoffDate="21 July 2022" dropoffTime="01:00">
     </app-details-rental>
+    <app-rental-analysis title="Top 5 Car Rental" [total]="72030" [items]="[
+    { label: 'Sport Car', value: 17439, color: '#0F172A' },
+    { label: 'SUV', value: 9478, color: '#1E3A8A' },
+    { label: 'Coupe', value: 18197, color: '#2563EB' },
+    { label: 'Hatchback', value: 12510, color: '#60A5FA' },
+    { label: 'MPV', value: 14406, color: '#93C5FD' }
+  ]">
+    </app-rental-analysis>
     <app-recent-transactions />
 </div>

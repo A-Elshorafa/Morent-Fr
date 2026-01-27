@@ -8,6 +8,7 @@ import { FilterLayoutService } from './core/services/filter-layout.service';
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { apiResponseInterceptor } from './core/api/api.interceptor';
 import { apiUrlInterceptor } from './core/api/api-url.interceptor';
+import { provideEchartsCore } from 'ngx-echarts';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -19,5 +20,8 @@ export const appConfig: ApplicationConfig = {
     provideHttpClient(
       withInterceptors([apiUrlInterceptor, apiResponseInterceptor])
     ),
+    provideEchartsCore({
+      echarts: () => import('echarts')
+    })
   ]
 };

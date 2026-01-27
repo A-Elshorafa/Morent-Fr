@@ -7,6 +7,13 @@
     flex-direction: column;
 }
 
+.title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--mat-sys-on-surface);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
 /* Header */
 .header {
     display: flex;
