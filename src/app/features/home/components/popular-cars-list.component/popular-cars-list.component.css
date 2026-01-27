@@ -16,12 +16,12 @@
 }
 
 .card-wrapper {
-    width: 280px;
+    width: var(--car-card-width);
     padding-right: 16px;
     box-sizing: border-box;
 }
 
 ::ng-deep .cdk-virtual-scroll-content-wrapper {
     display: flex;
-    gap: 3rem;
+    gap: var(--car-card-gap);
 }
