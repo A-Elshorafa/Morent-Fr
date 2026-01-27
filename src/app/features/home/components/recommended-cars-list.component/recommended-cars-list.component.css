@@ -14,7 +14,7 @@
 /* AUTO HEIGHT MODE */
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(var(--car-card-width), 1fr));
   gap: 20px;
 }
 
@@ -31,13 +31,13 @@
 
 .row {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(var(--car-card-width), 1fr));
   gap: 20px;
-  height: 340px;
+  margin-bottom: 20px;
 }
 
 .card-wrapper {
-  height: 300px;
+  width: var(--car-card-width);
 }
 
 .show-more-btn-container {

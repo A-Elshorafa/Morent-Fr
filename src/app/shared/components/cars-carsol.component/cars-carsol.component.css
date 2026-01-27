@@ -10,18 +10,29 @@
 }
 
 .viewport {
-    height: 360px;
+    height: 380px;
     width: 100%;
     overflow: auto;
 }
 
 .card-wrapper {
-    width: 280px;
-    padding-right: 16px;
+    width: var(--car-card-width);
+    padding-right: var(--car-card-gap);
     box-sizing: border-box;
+    flex-shrink: 0;
 }
 
 ::ng-deep .cdk-virtual-scroll-content-wrapper {
     display: flex;
-    gap: 3rem;
+}
+
+@media (max-width: 640px) {
+    .viewport {
+        height: 340px;
+    }
+
+    .card-wrapper {
+        width: 85vw;
+        /* Show a bit of the next card on mobile */
+    }
 }

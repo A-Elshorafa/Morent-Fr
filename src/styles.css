@@ -8,6 +8,45 @@
     box-sizing: border-box;
 }
 
+:root {
+    /* Car Card Variables */
+    --car-card-bg: #ffffff;
+    --car-card-radius: 12px;
+    --car-card-padding: 16px;
+    --car-card-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+    --car-card-gap: 6px;
+    --car-card-width: 320px;
+
+    --car-card-title-size: 16px;
+    --car-card-title-weight: 700;
+    --car-card-title-color: #1a202c;
+
+    --car-card-type-color: #6b7280;
+    --car-card-type-size: 12px;
+
+    --car-card-image-height: 120px;
+
+    --car-card-feature-size: 12px;
+    --car-card-feature-color: #6b7280;
+
+    --car-card-price-size: 18px;
+    --car-card-price-color: #1a202c;
+    --car-card-unit-size: 12px;
+    --car-card-unit-color: #6b7280;
+}
+
+/* Mobile Responsiveness for Car Cards */
+@media (max-width: 640px) {
+    :root {
+        --car-card-width: 100%;
+        --car-card-padding: 12px;
+        --car-card-gap: 12px;
+        --car-card-image-height: 100px;
+        --car-card-title-size: 14px;
+        --car-card-price-size: 16px;
+    }
+}
+
 html {
     overflow-x: hidden;
     width: 100%;

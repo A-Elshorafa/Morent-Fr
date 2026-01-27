@@ -14,8 +14,8 @@
 /* AUTO HEIGHT MODE */
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
-  gap: 3rem;
+  grid-template-columns: repeat(auto-fill, minmax(var(--car-card-width), 1fr));
+  gap: 24px;
   align-items: center;
   margin: 0 auto;
 }
