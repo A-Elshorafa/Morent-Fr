@@ -18,4 +18,8 @@ export class CarService {
     getRecommendedCars(): Observable<Car[]> {
         return this.repo.getRecommendedCars();
     }
+
+    getCarDetails(id: string): Observable<Car> {
+        return this.repo.getCarDetails(id);
+    }
 }

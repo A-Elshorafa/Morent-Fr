@@ -2,6 +2,11 @@
     <label class="title">{{ title }}</label>
 
     <div class="input-wrapper">
-        <input type="password" class="input" placeholder="CVC" maxlength="4" inputmode="numeric" />
+        <input type="password" class="input" [class.input-error]="isInvalid" placeholder="CVC" maxlength="4"
+            inputmode="numeric" [value]="value" [disabled]="disabled" (input)="onInput($event)" (blur)="onTouched()" />
     </div>
+
+    @if (isInvalid) {
+    <small class="error-message">{{ title }} is required</small>
+    }
 </div>

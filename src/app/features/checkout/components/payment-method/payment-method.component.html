@@ -7,12 +7,11 @@
   </label>
 
   <div *ngIf="group.value.method === 'card'">
-    <app-card-input title="Card Number" (valueChange)="group.controls['cardNumber'].setValue($event)"></app-card-input>
+    <app-card-input title="Card Number" formControlName="cardNumber" />
 
-    <app-expiry-date-input title="Expiry Date"
-      (valueChange)="group.controls['expiry'].setValue($event)"></app-expiry-date-input>
+    <app-expiry-date-input title="Expiry Date" formControlName="expiry" />
 
-    <app-ccv-input title="CVC" (valueChange)="group.controls['cvc'].setValue($event)"></app-ccv-input>
+    <app-ccv-input title="CVC" formControlName="cvc" />
 
     <app-form-input title="Card Holder" formControlName="holder" placeholder="Card Holder" />
   </div>

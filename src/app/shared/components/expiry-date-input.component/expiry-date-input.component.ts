@@ -1,4 +1,5 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, Input, Optional, Self } from '@angular/core';
+import { ControlValueAccessor, NgControl } from '@angular/forms';
 
 @Component({
   selector: 'app-expiry-date-input',
@@ -6,9 +7,40 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   templateUrl: './expiry-date-input.component.html',
   styleUrl: './expiry-date-input.component.css',
 })
-export class ExpiryDateInputComponent {
+export class ExpiryDateInputComponent implements ControlValueAccessor {
   @Input() title = 'Expiry Date';
-  @Output() valueChange = new EventEmitter<string>();
+
+  constructor(@Optional() @Self() public ngControl: NgControl) {
+    if (this.ngControl) {
+      this.ngControl.valueAccessor = this;
+    }
+  }
+
+  get isInvalid(): boolean {
+    return !!(this.ngControl?.invalid && (this.ngControl?.dirty || this.ngControl?.touched));
+  }
+
+  value = '';
+  disabled = false;
+
+  onChange = (value: string) => { };
+  onTouched = () => { };
+
+  writeValue(value: string): void {
+    this.value = value ?? '';
+  }
+
+  registerOnChange(fn: any): void {
+    this.onChange = fn;
+  }
+
+  registerOnTouched(fn: any): void {
+    this.onTouched = fn;
+  }
+
+  setDisabledState(isDisabled: boolean): void {
+    this.disabled = isDisabled;
+  }
 
   onInput(event: Event) {
     const input = event.target as HTMLInputElement;
@@ -19,6 +51,7 @@ export class ExpiryDateInputComponent {
     }
 
     input.value = value;
-    this.valueChange.emit(value);
+    this.value = value;
+    this.onChange(value);
   }
 }

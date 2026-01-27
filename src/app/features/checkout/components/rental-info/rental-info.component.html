@@ -5,17 +5,37 @@
         <h4>Pick-Up</h4>
 
         <app-location-select title="Location" formControlName="pickUpLocation" />
+        @if (pickUp.get('pickUpLocation')?.invalid && pickUp.get('pickUpLocation')?.touched) {
+        <small class="error-message">Pick-up location is required</small>
+        }
 
         <app-form-date title="Pick-Up Date" formControlName="pickUpDate" />
+        @if (pickUp.get('pickUpDate')?.invalid && pickUp.get('pickUpDate')?.touched) {
+        <small class="error-message">Pick-up date is required</small>
+        }
+
         <app-form-time title="Pick-Up Time" formControlName="pickUpTime" />
+        @if (pickUp.get('pickUpTime')?.invalid && pickUp.get('pickUpTime')?.touched) {
+        <small class="error-message">Pick-up time is required</small>
+        }
     </div>
 
     <div [formGroup]="dropOff">
         <h4>Drop-Off</h4>
 
         <app-location-select title="Location" formControlName="deliveryLocation" />
+        @if (dropOff.get('deliveryLocation')?.invalid && dropOff.get('deliveryLocation')?.touched) {
+        <small class="error-message">Delivery location is required</small>
+        }
 
         <app-form-date title="Delivery Date" formControlName="deliveryDate" />
+        @if (dropOff.get('deliveryDate')?.invalid && dropOff.get('deliveryDate')?.touched) {
+        <small class="error-message">Delivery date is required</small>
+        }
+
         <app-form-time title="Delivery Time" formControlName="deliveryTime" />
+        @if (dropOff.get('deliveryTime')?.invalid && dropOff.get('deliveryTime')?.touched) {
+        <small class="error-message">Delivery time is required</small>
+        }
     </div>
 </section>

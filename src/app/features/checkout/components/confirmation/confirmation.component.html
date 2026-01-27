@@ -14,4 +14,7 @@
             I agree to terms & privacy policy
         </label>
     </div>
+    @if (group.get('terms')?.invalid && group.get('terms')?.touched) {
+    <small class="error-message">You must agree to the terms and privacy policy</small>
+    }
 </section>

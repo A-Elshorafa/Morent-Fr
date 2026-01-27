@@ -2,6 +2,11 @@
     <label class="title">{{ title }}</label>
 
     <div class="input-wrapper">
-        <input type="text" class="input" placeholder="Card Number" maxlength="19" (input)="onInput($event)" />
+        <input type="text" class="input" [class.input-error]="isInvalid" placeholder="Card Number" maxlength="19"
+            [value]="value" [disabled]="disabled" (input)="onInput($event)" (blur)="onTouched()" />
     </div>
+
+    @if (isInvalid) {
+    <small class="error-message">{{ title }} is required</small>
+    }
 </div>

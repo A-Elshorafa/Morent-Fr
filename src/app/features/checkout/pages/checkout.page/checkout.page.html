@@ -5,10 +5,12 @@
         <app-payment-method [group]="form.controls.payment" />
         <app-confirmation [group]="form.controls.confirmation" />
 
-        <button type="submit" class="btn-primary">
-            Rent Now
+        <button type="submit" class="btn-primary" [disabled]="isLoading()">
+            {{ isLoading() ? 'Processing...' : 'Rent Now' }}
         </button>
     </form>
 
-    <app-rental-summary />
+    @if (car(); as data) {
+    <app-rental-summary [carName]="data.modelName" [carImage]="data.photoURL" [subtotal]="data.rentalPrice" />
+    }
 </div>

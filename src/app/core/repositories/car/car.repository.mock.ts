@@ -195,4 +195,12 @@ export class CarMockRepository implements CarRepository {
             },
         ]);
     }
+
+    getCarDetails(id: string): Observable<Car> {
+        const car = this.carsDummyData.find(c => c.carId === id);
+        if (!car) {
+            throw new Error('Car not found');
+        }
+        return of(car);
+    }
 }

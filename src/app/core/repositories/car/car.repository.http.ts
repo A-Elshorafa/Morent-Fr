@@ -19,4 +19,8 @@ export class CarHttpRepository implements CarRepository {
     getRecommendedCars(): Observable<Car[]> {
         return this.http.get<Car[]>('cars/get-recommended-cars');
     }
+
+    getCarDetails(id: string): Observable<Car> {
+        return this.http.get<Car>(`cars/${id}`);
+    }
 }
