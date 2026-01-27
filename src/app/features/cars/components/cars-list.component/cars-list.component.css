@@ -14,7 +14,7 @@
 /* AUTO HEIGHT MODE */
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
   gap: 3rem;
   align-items: center;
   margin: 0 auto;

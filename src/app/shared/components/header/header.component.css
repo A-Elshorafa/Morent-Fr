@@ -31,3 +31,17 @@
   font-weight: 700;
   color: var(--mat-sys-primary);
 }
+
+@media (max-width: 800px) {
+  .search-field {
+    display: none;
+  }
+
+  #heart-button {
+    display: none;
+  }
+
+  #notification-button {
+    display: none;
+  }
+}

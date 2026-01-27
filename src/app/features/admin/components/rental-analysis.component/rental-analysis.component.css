@@ -161,3 +161,18 @@
 /* ===============================
    Responsive
 =============================== */
+@media (max-width: 768px) {
+    .content {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .chart-wrapper {
+        width: 160px;
+        height: 160px;
+    }
+
+    .legend {
+        width: 100%;
+    }
+}
