@@ -1,0 +1,91 @@
+<mat-card class="rental-card">
+
+    <!-- Loading -->
+    <mat-card-content *ngIf="loading" class="state loading">
+        <div class="skeleton map"></div>
+        <div class="skeleton line" *ngFor="let i of [1,2,3,4]"></div>
+    </mat-card-content>
+
+    <!-- Empty -->
+    <mat-card-content *ngIf="!loading && isEmpty" class="state empty">
+        <p>No rental details available</p>
+    </mat-card-content>
+
+    <!-- Content -->
+    <ng-container *ngIf="!loading && !isEmpty">
+
+        <!-- Map (still INSIDE the card) -->
+        <div class="map">
+            <img src="assets/images/maps.png" />
+            <ng-template #mapPlaceholder>
+                <div class="map-placeholder">Map Image</div>
+            </ng-template>
+        </div>
+
+        <mat-card-content class="content">
+
+            <!-- Car -->
+            <div class="car">
+                <img [src]="carImage" />
+                <div>
+                    <div class="name">{{ carName }}</div>
+                    <div class="type">{{ carType }}</div>
+                </div>
+            </div>
+
+            <!-- Pick Up -->
+            <div class="section">
+                <div class="section-title">
+                    <span class="dot"></span> Pick - Up
+                </div>
+                <div class="grid">
+                    <div class="field">
+                        <label>Locations</label>
+                        <span>{{ pickupLocation }}</span>
+                    </div>
+                    <div class="field">
+                        <label>Date</label>
+                        <span>{{ pickupDate }}</span>
+                    </div>
+                    <div class="field">
+                        <label>Time</label>
+                        <span>{{ pickupTime }}</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Drop Off -->
+            <div class="section">
+                <div class="section-title">
+                    <span class="dot"></span> Drop - Off
+                </div>
+                <div class="grid">
+                    <div class="field">
+                        <label>Locations</label>
+                        <span>{{ dropoffLocation }}</span>
+                    </div>
+                    <div class="field">
+                        <label>Date</label>
+                        <span>{{ dropoffDate }}</span>
+                    </div>
+                    <div class="field">
+                        <label>Time</label>
+                        <span>{{ dropoffTime }}</span>
+                    </div>
+                </div>
+            </div>
+
+        </mat-card-content>
+
+        <!-- Footer -->
+        <mat-card-footer class="price">
+            <div>
+                <div class="title">Total Rental Price</div>
+                <div class="sub">Overall price and includes rental discount</div>
+            </div>
+            <div class="amount">${{ price | number:'1.2-2' }}</div>
+        </mat-card-footer>
+
+    </ng-container>
+
+</mat-card>
