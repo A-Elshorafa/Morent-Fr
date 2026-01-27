@@ -1,4 +1,4 @@
-import { Component, OnInit, signal } from '@angular/core';
+import { Component, OnInit, signal, Output, EventEmitter } from '@angular/core';
 import { CarService } from '../../../../core/services/car.service';
 import { CommonModule } from '@angular/common';
 import { Car } from '../../../../core/interfaces/car.interface';
@@ -17,7 +17,13 @@ export class RecentTransactionsComponent implements OnInit {
   cars = signal<Car[]>([]);
   hasMore = signal<boolean>(true);
 
+  @Output() carSelected = new EventEmitter<Car>();
+
   constructor(private carService: CarService) { }
+
+  onCarClick(car: Car): void {
+    this.carSelected.emit(car);
+  }
 
   ngOnInit(): void {
     this.loadCars();

@@ -17,7 +17,7 @@
 
     <!-- List -->
     <div *ngIf="!loading() && cars().length" class="list">
-        <div class="transaction" *ngFor="let car of cars()">
+        <div class="transaction" *ngFor="let car of cars()" (click)="onCarClick(car)">
             <img [src]="car.photoURL" alt="car" />
 
             <div class="info">

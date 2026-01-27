@@ -7,3 +7,13 @@
 .analytics-container>*:first-child {
     grid-row: span 2;
 }
+
+@media (max-width: 768px) {
+    .analytics-container {
+        grid-template-columns: 1fr;
+    }
+
+    .analytics-container>*:first-child {
+        grid-row: auto;
+    }
+}
