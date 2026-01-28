@@ -4,6 +4,10 @@ import { Car } from '../../../../core/interfaces/car.interface';
 import { CarCardComponent } from "../../../../shared/components/car-card.component/car-card.component";
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { CommonModule } from '@angular/common';
+import { Subscription } from 'rxjs';
+import { Router, NavigationEnd } from '@angular/router';
+import { filter } from 'rxjs/operators';
+
 @Component({
   selector: 'recommended-cars-list',
   standalone: true,   // 👈 REQUIRED
@@ -12,6 +16,7 @@ import { CommonModule } from '@angular/common';
   imports: [CommonModule, CarCardComponent, ScrollingModule],
 })
 export class RecommendedCarsListComponent implements OnInit {
+  private sub!: Subscription;
   cars: Car[] = [];
   carsRows: any[][] = [];
 
@@ -20,7 +25,7 @@ export class RecommendedCarsListComponent implements OnInit {
   STEP = 5;
   readonly CARS_PER_ROW = 4;
 
-  constructor(private carService: CarService) { }
+  constructor(private carService: CarService, private router: Router) { }
 
   @ViewChild('container') container?: ElementRef<HTMLElement>;
 
@@ -37,6 +42,19 @@ export class RecommendedCarsListComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.recommendedCars(); // 👈 FIRST LOAD
+    setTimeout(() => {
+      this.calculateHeight();
+    }, 100);
+
+    this.sub = this.router.events
+      .pipe(filter(e => e instanceof NavigationEnd))
+      .subscribe(() => {
+        this.recommendedCars();
+      });
+  }
+
+  recommendedCars() {
     this.carService.getRecommendedCars().subscribe(cars => {
       this.cars = cars;
       this.buildRows();
@@ -55,7 +73,7 @@ export class RecommendedCarsListComponent implements OnInit {
   }
 
   trackById(index: number, car: any) {
-    return car.id;
+    return car.carId;
   }
 
   showMore() {
