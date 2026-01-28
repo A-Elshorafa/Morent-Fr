@@ -79,4 +79,9 @@ export class RecommendedCarsListComponent implements OnInit {
   showMore() {
     this.visibleCount += this.STEP;
   }
+
+  rentNow(car: Car) {
+    console.log('rentNow', car);
+    this.router.navigate([`/checkout`], { queryParams: { carId: car.carId, renterId: '2' } });
+  }
 }
