@@ -8,6 +8,7 @@ import { AnalyticsPage } from './features/admin/pages/analytics.page/analytics.p
 import { LoginPage } from './features/auth/pages/login-page/login-page';
 import { MainLayout } from './core/layout/main.layout/main.layout';
 import { AuthLayout } from './core/layout/auth.layout/auth.layout';
+import { authGuard, guestGuard } from './core/guards/auth.guard';
 
 export const routes: Routes = [
   {
@@ -15,10 +16,11 @@ export const routes: Routes = [
     redirectTo: '/home',
     pathMatch: 'full'
   },
-  // Auth Layout Routes
+  // Auth Layout Routes - GUEST ONLY
   {
     path: '',
     component: AuthLayout,
+    canActivate: [guestGuard],
     children: [
       {
         path: 'login',
@@ -26,10 +28,11 @@ export const routes: Routes = [
       }
     ]
   },
-  // Main Layout Routes
+  // Main Layout Routes - AUTH REQUIRED
   {
     path: '',
     component: MainLayout,
+    canActivate: [authGuard],
     children: [
       {
         path: 'home',
