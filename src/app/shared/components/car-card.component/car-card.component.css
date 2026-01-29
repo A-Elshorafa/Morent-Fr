@@ -1,6 +1,7 @@
 :host {
     display: block;
     width: var(--car-card-width);
+    height: var(--car-card-height);
 }
 
 /* =====================

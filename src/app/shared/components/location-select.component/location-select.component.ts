@@ -1,4 +1,4 @@
-import { Component, Input, forwardRef, OnInit } from '@angular/core';
+import { Component, Input, forwardRef, signal } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { SelectOption } from '../../../core/interfaces/select-option';
 import { FormSelectComponent } from "../form-select.component/form-select.component";
@@ -24,7 +24,7 @@ export class LocationSelectComponent implements ControlValueAccessor {
   @Input() variant: 'default' | 'inline' = 'default';
 
   options: SelectOption<number>[] = [];
-  value: number | null = null;
+  value = signal<number | null>(null);
   disabled = false;
 
   onChange = (value: number | null) => { };
@@ -36,14 +36,13 @@ export class LocationSelectComponent implements ControlValueAccessor {
         label: l.locationName,
         value: l.locationId,
       }));
-      console.log('options : ', this.options)
-
+      this.value.set(this.value());
     });
   }
 
 
   writeValue(value: number | null): void {
-    this.value = value;
+    this.value.set(value);
   }
 
   registerOnChange(fn: any): void {
@@ -59,7 +58,7 @@ export class LocationSelectComponent implements ControlValueAccessor {
   }
 
   handleValueChange(value: number | null): void {
-    this.value = value;
+    this.value.set(value);
     this.onChange(value);
   }
 }

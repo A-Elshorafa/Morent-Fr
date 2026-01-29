@@ -3,6 +3,9 @@ import { Car } from '../../../../core/interfaces/car.interface';
 import { CarCardComponent } from "../../../../shared/components/car-card.component/car-card.component";
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { CommonModule } from '@angular/common';
+import { filter, Subscription } from 'rxjs';
+import { NavigationEnd, Router } from '@angular/router';
+import { CarService } from '@/core/services/car.service';
 
 @Component({
   selector: 'app-cars-list',
@@ -16,12 +19,15 @@ export class CarsListComponent implements OnInit, OnChanges {
   @Input({ required: true }) showExternalPagination!: boolean;
   @Input({ required: true }) hasMore!: boolean;
   @Output() showMoreClick = new EventEmitter<void>();
+  private sub!: Subscription;
   carsRows: any[][] = [];
 
   viewportHeight = 0;
   visibleCount = 5;
   STEP = 5;
   readonly CARS_PER_ROW = 4;
+
+  constructor(private router: Router, private carService: CarService) { }
 
   @ViewChild('container') container?: ElementRef<HTMLElement>;
 
@@ -37,6 +43,19 @@ export class CarsListComponent implements OnInit, OnChanges {
     this.viewportHeight = window.innerHeight - rect.top - 20;
   }
 
+  ngOnInit() {
+    this.recommendedCars(); // 👈 FIRST LOAD
+    setTimeout(() => {
+      this.calculateHeight();
+    }, 100);
+
+    this.sub = this.router.events
+      .pipe(filter(e => e instanceof NavigationEnd))
+      .subscribe(() => {
+        this.recommendedCars();
+      });
+  }
+
   ngOnChanges(changes: SimpleChanges) {
     if (changes['cars']) {
       if (this.showExternalPagination) {
@@ -48,7 +67,11 @@ export class CarsListComponent implements OnInit, OnChanges {
     }
   }
 
-  ngOnInit() {
+  recommendedCars() {
+    this.carService.getRecommendedCars().subscribe(cars => {
+      this.cars = cars;
+      this.buildRows();
+    });
   }
 
   buildRows() {

@@ -5,6 +5,6 @@
 
 <cdk-virtual-scroll-viewport orientation="horizontal" itemSize="280" class="viewport">
     <div class="card-wrapper" *cdkVirtualFor="let car of cars">
-        <car-card [car]="car"></car-card>
+        <car-card [car]="car" (rentNowEvent)="rentNow($event)"></car-card>
     </div>
 </cdk-virtual-scroll-viewport>

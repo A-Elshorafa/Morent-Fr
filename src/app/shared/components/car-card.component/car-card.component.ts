@@ -19,6 +19,7 @@ export class CarCardComponent {
   }
 
   rentNow() {
-    this.rentNowEvent.emit(this.car);
+    // this.rentNowEvent.emit(this.car);
+    this.router.navigate([`/checkout`], { queryParams: { carId: this.car.carId, renterId: '2' } });
   }
 }

@@ -6,13 +6,14 @@ import { ScrollingModule } from '@angular/cdk/scrolling';
 import { Subscription } from 'rxjs';
 import { Router, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'popular-cars-list',
   standalone: true,   // 👈 REQUIRED
   templateUrl: './popular-cars-list.component.html',
   styleUrls: ['./popular-cars-list.component.css'],
-  imports: [CarCardComponent, ScrollingModule],
+  imports: [CarCardComponent, ScrollingModule, CommonModule],
 })
 export class PopularCarsListComponent implements OnInit {
   private sub!: Subscription;
@@ -38,5 +39,9 @@ export class PopularCarsListComponent implements OnInit {
 
   trackById(index: number, car: any) {
     return car.carId;
+  }
+
+  rentNow(car: Car) {
+    this.router.navigate([`/checkout`], { queryParams: { carId: car.carId, renterId: '2' } });
   }
 }

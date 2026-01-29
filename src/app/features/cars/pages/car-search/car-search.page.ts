@@ -2,7 +2,7 @@ import { Component, OnInit, signal } from '@angular/core';
 import { RentalFilterComponent } from "@/shared/components/rental-filter.component/rental-filter.component";
 import { CarsListComponent } from "../../components/cars-list.component/cars-list.component";
 import { CarService } from '@/core/services/car.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Car } from '@/core/interfaces/car.interface';
 import { CommonModule } from '@angular/common';
 
@@ -18,10 +18,15 @@ export class CarSearchPage implements OnInit {
   currentPage = 1;
   pageSize = 5;
   searchToken = '';
+  fromDate = '';
+  toDate = '';
+  locationId?: number;
+  dropOffLocation?: number;
   hasMore = true;
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private carService: CarService,
   ) { }
 
@@ -29,6 +34,11 @@ export class CarSearchPage implements OnInit {
     // Subscribe to query parameters to trigger search on page load and on update
     this.route.queryParams.subscribe(params => {
       this.searchToken = params['search'] || '';
+      this.fromDate = params['fromDate'] || '';
+      this.toDate = params['toDate'] || '';
+      this.locationId = params['locationId'] ? Number(params['locationId']) : undefined;
+      this.dropOffLocation = params['dropOffLocation'] ? Number(params['dropOffLocation']) : undefined;
+
       this.resetAndLoad();
     });
   }
@@ -43,7 +53,14 @@ export class CarSearchPage implements OnInit {
   }
 
   loadCars(): void {
-    this.carService.getCarsList(this.currentPage, this.pageSize, this.searchToken).subscribe(newCars => {
+    this.carService.getCarsList(
+      this.currentPage,
+      this.pageSize,
+      this.searchToken,
+      this.fromDate,
+      this.toDate,
+      this.locationId
+    ).subscribe(newCars => {
       if (newCars.length < this.pageSize) {
         this.hasMore = false;
       }
@@ -58,11 +75,19 @@ export class CarSearchPage implements OnInit {
     }
   }
 
-  onSwapLocations(data: any) {
-    // todo : handle the filter by availability dates
-    this.resetAndLoad(false);
-    setTimeout(() => {
-      this.resetAndLoad();
-    }, 1000);
+  handleFilterChange(data: any) {
+    const fromDateTime = (data.pickUpDate && data.pickUpTime) ? `${data.pickUpDate}T${data.pickUpTime}` : data.pickUpDate || null;
+    const toDateTime = (data.dropOffDate && data.dropOffTime) ? `${data.dropOffDate}T${data.dropOffTime}` : data.dropOffDate || null;
+
+    this.router.navigate([], {
+      relativeTo: this.route,
+      queryParams: {
+        fromDate: fromDateTime,
+        toDate: toDateTime,
+        locationId: data.pickUpLocation || null,
+        dropOffLocation: data.dropOffLocation || null
+      },
+      queryParamsHandling: 'merge'
+    });
   }
 }

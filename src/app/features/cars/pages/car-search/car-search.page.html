@@ -1,5 +1,5 @@
 <div class="body-container">
-    <rental-filter (swapLocationsEvent)="onSwapLocations($event)"></rental-filter>
+    <rental-filter (filterChanged)="handleFilterChange($event)"></rental-filter>
     <app-cars-list [cars]="cars()" [showExternalPagination]="true" [hasMore]="hasMore" (showMoreClick)="loadMore()" />
     <div class="no-cars-found" *ngIf="cars().length === 0">
         No cars found

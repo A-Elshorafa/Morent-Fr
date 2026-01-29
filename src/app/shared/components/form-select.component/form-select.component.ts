@@ -25,6 +25,8 @@ export class FormSelectComponent<T = any> implements ControlValueAccessor {
   @Input() variant: 'default' | 'inline' = 'default';
   @Output() valueChange = new EventEmitter<T | null>();
 
+  protected String = String;
+
   onChange = (value: T | null) => { };
   onTouched = () => { };
 

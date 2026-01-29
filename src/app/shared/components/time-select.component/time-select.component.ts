@@ -15,8 +15,9 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
   ],
 })
 export class FormTimeComponent implements ControlValueAccessor {
-  @Input({ required: true }) title!: string;
   @Input() placeholder = 'Select time';
+  @Input({ required: true }) title!: string;
+  @Input() variant: 'inline' | 'default' = 'default';
 
   value: string | null = null;
   disabled = false;

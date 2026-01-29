@@ -52,7 +52,14 @@ export class CarMockRepository implements CarRepository {
         },
     ];
 
-    getCarsList(pageNumber: number = 1, pageSize: number = 10, searchToken: string = ""): Observable<Car[]> {
+    getCarsList(
+        pageNumber: number = 1,
+        pageSize: number = 10,
+        searchToken: string = "",
+        fromDate?: string,
+        toDate?: string,
+        locationId?: number
+    ): Observable<Car[]> {
         return of(this.carsDummyData);
     }
 

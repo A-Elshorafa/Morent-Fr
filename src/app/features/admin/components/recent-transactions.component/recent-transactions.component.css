@@ -5,6 +5,7 @@
     max-height: 420px;
     display: flex;
     flex-direction: column;
+    box-shadow: var(--car-card-shadow);
 }
 
 .title {

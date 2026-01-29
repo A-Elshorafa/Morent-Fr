@@ -9,14 +9,14 @@
         <div class="fields">
             <app-location-select title="Location" formControlName="pickUpLocation" variant="inline" />
 
-            <app-form-date title="From" formControlName="pickUpDateFrom" variant="inline" />
+            <app-form-date title="Date" formControlName="pickUpDate" variant="inline" />
 
-            <app-form-date title="To" formControlName="pickUpDateTo" variant="inline" />
+            <app-form-time title="Time" formControlName="pickUpTime" variant="inline" />
         </div>
     </div>
 
     <!-- Swap Button -->
-    <button type="button" class="swap-btn" (click)="swapLocations()">
+    <button type="button" class="swap-btn" (click)="searchCars()">
         ⇅
     </button>
 
@@ -30,9 +30,9 @@
         <div class="fields">
             <app-location-select title="Location" formControlName="dropOffLocation" variant="inline" />
 
-            <app-form-date title="From" formControlName="dropOffDateFrom" variant="inline" />
+            <app-form-date title="Date" formControlName="dropOffDate" variant="inline" />
 
-            <app-form-date title="To" formControlName="dropOffDateTo" variant="inline" />
+            <app-form-time title="Time" formControlName="dropOffTime" variant="inline" />
         </div>
     </div>
 </form>

@@ -8,8 +8,20 @@ import { CarRepository } from './car.repository';
 export class CarHttpRepository implements CarRepository {
     constructor(private http: HttpClient) { }
 
-    getCarsList(pageNumber: number = 1, pageSize: number = 10, searchToken: string = ""): Observable<Car[]> {
-        return this.http.get<Car[]>('cars', { params: { pageNumber, pageSize, searchToken } });
+    getCarsList(
+        pageNumber: number = 1,
+        pageSize: number = 10,
+        searchToken: string = "",
+        fromDate?: string,
+        toDate?: string,
+        locationId?: number
+    ): Observable<Car[]> {
+        const params: any = { pageNumber, pageSize, searchToken };
+        if (fromDate) params.fromDate = fromDate;
+        if (toDate) params.toDate = toDate;
+        if (locationId) params.locationId = locationId;
+
+        return this.http.get<Car[]>('cars', { params });
     }
 
     getPopularCars(): Observable<Car[]> {
