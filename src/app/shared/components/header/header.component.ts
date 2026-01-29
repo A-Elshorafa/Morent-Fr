@@ -30,4 +30,12 @@ export class HeaderComponent {
   onSearch(searchkey: string) {
     this.router.navigate(['/car-search'], { queryParams: { search: searchkey } });
   }
+
+  onSettingClick() {
+    this.router.navigate(['/analytics']);
+  }
+
+  onTitleClick() {
+    this.router.navigate(['/home']);
+  }
 }

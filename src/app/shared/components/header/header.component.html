@@ -1,7 +1,7 @@
 <mat-toolbar class="header-toolbar mat-elevation-z2">
     <div class="left-section">
         <!-- Material typography + theme color -->
-        <span class="mat-title-large app-title">Morent</span>
+        <span class="mat-title-large app-title" (click)="onTitleClick()">Morent</span>
 
         <app-input-component [showFilterButton]="true" placeholder="Search something here" type="search"
             class="search-field rounded-field" (onSearch)="onSearch($event)"></app-input-component>
@@ -12,7 +12,7 @@
     <div class="right-section">
         <icon-button id="heart-button" icon="heart.png" />
         <icon-button id="notification-button" icon="notification.png" />
-        <icon-button id="setting-button" icon="setting-2.png" />
+        <icon-button id="setting-button" icon="setting-2.png" (click)="onSettingClick()" />
         <icon-button id="profile-button" icon="https://randomuser.me/api/portraits/men/32.jpg" size="large" />
     </div>
 </mat-toolbar>
