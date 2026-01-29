@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, AfterViewInit, OnDestroy, ViewChild } from '@angular/core';
 import { CarService } from '../../../../core/services/car.service';
 import { Car } from '../../../../core/interfaces/car.interface';
 import { CarCardComponent } from "../../../../shared/components/car-card.component/car-card.component";
@@ -15,7 +15,7 @@ import { filter } from 'rxjs/operators';
   styleUrls: ['./recommended-cars-list.component.css'],
   imports: [CommonModule, CarCardComponent, ScrollingModule],
 })
-export class RecommendedCarsListComponent implements OnInit {
+export class RecommendedCarsListComponent implements OnInit, AfterViewInit, OnDestroy {
   private sub!: Subscription;
   cars: Car[] = [];
   carsRows: any[][] = [];
@@ -24,14 +24,9 @@ export class RecommendedCarsListComponent implements OnInit {
   visibleCount = 5;
   STEP = 5;
   readonly CARS_PER_ROW = 4;
-
-  constructor(private carService: CarService, private router: Router) { }
-
   @ViewChild('container') container?: ElementRef<HTMLElement>;
 
-  ngAfterViewInit() {
-    this.calculateHeight();
-  }
+  constructor(private carService: CarService, private router: Router) { }
 
   calculateHeight(): void {
     const el = this.container?.nativeElement;
@@ -39,19 +34,6 @@ export class RecommendedCarsListComponent implements OnInit {
 
     const rect = el.getBoundingClientRect();
     this.viewportHeight = window.innerHeight - rect.top - 20;
-  }
-
-  ngOnInit() {
-    this.recommendedCars(); // 👈 FIRST LOAD
-    setTimeout(() => {
-      this.calculateHeight();
-    }, 100);
-
-    this.sub = this.router.events
-      .pipe(filter(e => e instanceof NavigationEnd))
-      .subscribe(() => {
-        this.recommendedCars();
-      });
   }
 
   recommendedCars() {
@@ -82,5 +64,30 @@ export class RecommendedCarsListComponent implements OnInit {
 
   rentNow(car: Car) {
     this.router.navigate([`/checkout`], { queryParams: { carId: car.carId, renterId: '2' } });
+  }
+
+  ngOnInit() {
+    this.recommendedCars();
+
+    this.sub = this.router.events
+      .pipe(filter(e => e instanceof NavigationEnd))
+      .subscribe(() => {
+        this.recommendedCars();
+        this.recalcLayout();
+      });
+  }
+
+  ngAfterViewInit() {
+    this.recalcLayout();
+  }
+
+  ngOnDestroy() {
+    this.sub?.unsubscribe();
+  }
+
+  private recalcLayout() {
+    requestAnimationFrame(() => {
+      this.calculateHeight();
+    });
   }
 }
