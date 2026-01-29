@@ -1,0 +1,25 @@
+<div class="login-container">
+    <div class="login-card">
+        <div class="login-header">
+            <h1 class="logo">MORENT</h1>
+            <h2>Welcome Back</h2>
+            <p>Enter your details to access your account</p>
+        </div>
+
+        @if (errorMessage()) {
+        <div class="error-alert">
+            {{ errorMessage() }}
+        </div>
+        }
+
+        <app-login-form [isLoading]="isLoading()" (login)="onLogin($event)">
+        </app-login-form>
+
+        <app-social-auth (socialLogin)="onSocialLogin($event)">
+        </app-social-auth>
+
+        <div class="login-footer">
+            <p>Don't have an account? <a routerLink="/register">Register now</a></p>
+        </div>
+    </div>
+</div>

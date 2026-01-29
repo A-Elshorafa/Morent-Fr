@@ -1,0 +1,20 @@
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form">
+    <app-form-input title="Email Address" placeholder="Enter your email" type="email" formControlName="email">
+    </app-form-input>
+
+    <app-form-input title="Password" placeholder="Enter your password" type="password" formControlName="password">
+    </app-form-input>
+
+    <div class="form-options">
+        <label class="remember-me">
+            <input type="checkbox" />
+            <span>Remember me</span>
+        </label>
+        <a routerLink="/forgot-password" class="forgot-link">Forgot Password?</a>
+    </div>
+
+    <button type="submit" class="login-button" [disabled]="isLoading">
+        <span *ngIf="!isLoading">Sign In</span>
+        <span *ngIf="isLoading" class="loader"></span>
+    </button>
+</form>

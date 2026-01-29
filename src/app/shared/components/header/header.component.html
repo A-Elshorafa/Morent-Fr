@@ -13,6 +13,9 @@
         <icon-button id="heart-button" icon="heart.png" />
         <icon-button id="notification-button" icon="notification.png" />
         <icon-button id="setting-button" icon="setting-2.png" (click)="onSettingClick()" />
+        @if (isAuthenticated()) {
+        <button class="logout-link" (click)="onLogout()">Logout</button>
+        }
         <icon-button id="profile-button" icon="https://randomuser.me/api/portraits/men/32.jpg" size="large" />
     </div>
 </mat-toolbar>

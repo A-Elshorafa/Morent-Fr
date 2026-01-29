@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from '../../../shared/components/header/header.component';
 import { FooterComponent } from '../../../shared/components/footer-component/footer-component';
 import { CarFilterPanelComponent } from '../../../shared/components/car-filter-panel.component/car-filter-panel.component';
@@ -8,7 +9,7 @@ import { FilterLayoutService } from '@/core/services/filter-layout.service';
 @Component({
   selector: 'app-main-layout',
   standalone: true,
-  imports: [HeaderComponent, FooterComponent, CarFilterPanelComponent],
+  imports: [HeaderComponent, FooterComponent, CarFilterPanelComponent, RouterOutlet],
   templateUrl: './main.layout.html',
   styleUrl: './main.layout.css',
 })

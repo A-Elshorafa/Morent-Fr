@@ -2,7 +2,7 @@
     <header-component (newfilterevent)="onToggleFilter()"></header-component>
     <car-filter-panel (filtersChange)="onFiltersChange($event)"></car-filter-panel>
     <main class="main">
-        <ng-content></ng-content>
+        <router-outlet></router-outlet>
     </main>
     <footer-component></footer-component>
 </div>
